@@ -1,0 +1,188 @@
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+ 
+  --bg-deep:       #080612;
+  --bg-dark:       #0f0c29;
+  --bg-mid:        #1a1535;
+  --bg-card:       #1e1a3a;
+  --bg-card-hover: #252048;
+  --border:        rgba(255,255,255,0.08);
+  --border-bright: rgba(255,255,255,0.16);
+
+  --purple:        #8b5cf6;
+  --purple-light:  #c4b5fd;
+  --indigo:        #6366f1;
+  --green:         #22c55e;
+  --green-light:   #4ade80;
+  --amber:         #f59e0b;
+  --red:           #ef4444;
+  --red-light:     #fca5a5;
+
+  --text-primary:   #f1f0ff;
+  --text-secondary: rgba(255,255,255,0.55);
+  --text-muted:     rgba(255,255,255,0.3);
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:  0 4px 24px rgba(0,0,0,0.4);
+  --shadow-lg:  0 8px 48px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 40px rgba(139,92,246,0.2);
+
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  background-image: url('/final.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 20%, rgba(139,92,246,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(99,102,241,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 50% 50%, rgba(139,92,246,0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb {
+  background: rgba(139,92,246,0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.7); }
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: var(--font-body); }
+input, select, textarea {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+}
+
+
+.glass {
+  background: rgba(30, 26, 58, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+.glass-bright {
+  background: rgba(36, 32, 72, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-bright);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #fff 0%, var(--purple-light) 50%, var(--indigo) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-up   { animation: fadeInUp 0.5s ease forwards; }
+.animate-fade      { animation: fadeIn 0.4s ease forwards; }
+.animate-pulse     { animation: pulse 2s infinite; }
+.animate-spin      { animation: spin 1s linear infinite; }
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.05) 25%,
+    rgba(255,255,255,0.1) 50%,
+    rgba(255,255,255,0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+}

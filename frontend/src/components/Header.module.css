@@ -1,0 +1,82 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 6, 18, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  font-size: 28px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 900;
+  background: linear-gradient(90deg, #fff, var(--purple-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navLink {
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: color var(--transition);
+  font-weight: 500;
+}
+
+.navLink:hover { color: var(--text-primary); }
+
+.navCta {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--purple-light);
+  background: rgba(139,92,246,0.12);
+  border: 1px solid rgba(139,92,246,0.25);
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.navCta:hover {
+  background: rgba(139,92,246,0.22);
+  border-color: rgba(139,92,246,0.4);
+}
+
+@media (max-width: 600px) {
+  .navLink { display: none; }
+  .logoBadge { display: none; }
+}

@@ -1,0 +1,103 @@
+.wrapper {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.satellite {
+  font-size: 56px;
+  display: block;
+  animation: orbit 3s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes orbit {
+  0%   { transform: rotate(0deg) translateX(0); }
+  25%  { transform: rotate(0deg) translateX(6px) translateY(-4px); }
+  50%  { transform: rotate(0deg) translateX(0) translateY(-8px); }
+  75%  { transform: rotate(0deg) translateX(-6px) translateY(-4px); }
+  100% { transform: rotate(0deg) translateX(0); }
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.subtitle strong { color: var(--purple-light); }
+
+.platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.platformPill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-secondary);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  animation: scanPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes scanPulse {
+  0%, 100% { opacity: 0.5; border-color: rgba(255,255,255,0.08); }
+  50%       { opacity: 1;   border-color: rgba(139,92,246,0.4); color: var(--purple-light); }
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: var(--purple);
+  border-radius: 50%;
+  animation: blink 1s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; box-shadow: 0 0 6px var(--purple); }
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.skeletonCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  animation: fadeIn 0.5s ease both;
+}
+
+.skH {
+  display: block;
+  border-radius: 6px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
