@@ -81,4 +81,7 @@ MIT License
 
 ---
 
+
+git clone https://github.com/GARGDAISY/Adaptive-Web-Scraper.git
+
 **Built by Nandini Garg**
